@@ -1,5 +1,5 @@
 # ArduinoDEMO
-Assignment for Interfacing with the Arduino Course
+Assignments for Interfacing with the Arduino Course
 
 Week 1
 
