@@ -13,3 +13,9 @@ Week 2
 
 
 Simulator: https://circuits.io/circuits/3657578-analogreadserial
+
+Week 4
+
+![ardpot](https://cloud.githubusercontent.com/assets/22894897/22753493/843d8d7c-edf9-11e6-8c73-7e2dc3f30d29.gif)
+
+Simulator: https://circuits.io/circuits/3941296-arduinopot
