@@ -3,6 +3,8 @@ Assignments for Interfacing with the Arduino Course
 
 Week 1
 
+Build a circuit that contains two push buttons, an LED, and any other basic components you think you need. The LED should only light when both push buttons are pressed. Only use your Arduino for power and ground.
+
 ![arduinohw1](https://cloud.githubusercontent.com/assets/22894897/21952471/afed8504-d9da-11e6-8454-757a27ada72f.gif)
 
 Simulator : https://circuits.io/circuits/3704783-conditions-arduino/
