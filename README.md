@@ -23,84 +23,87 @@ Write a sketch that allows a user to access data in EEPROM using the serial moni
 
 For example, if the user types “read 3” then the contents of EEPROM address 3 should be printed to the serial monitor. If the user types “write 3 10” then the value 10 should be written into address 3 of the EEPROM.
 
-#include <EEPROM.h>
+<pre>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">EEPROM</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
 
-String command;
+<font color="#00979c">String</font> <font color="#000000">command</font><font color="#000000">;</font>
 
-void setup() {
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;
+<font color="#000000">}</font>
 
-Serial.begin(9600);
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
 
-}
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">available</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">&gt;</font> <font color="#000000">0</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;<font color="#000000">command</font> <font color="#434f54">=</font> <b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">readStringUntil</font><font color="#000000">(</font><font color="#00979c">'\n'</font><font color="#000000">)</font><font color="#000000">;</font> 
+ &nbsp;&nbsp;&nbsp;<font color="#00979c">String</font> <font color="#000000">commandRead</font> <font color="#434f54">=</font> <font color="#000000">command</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#00979c">String</font> <font color="#000000">commandWrite</font> <font color="#434f54">=</font> <font color="#000000">command</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#00979c">String</font> <font color="#000000">sRead</font> <font color="#434f54">=</font> <font color="#005c5f">"read"</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#00979c">String</font> <font color="#000000">sWrite</font> <font color="#434f54">=</font> <font color="#005c5f">"write"</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">commandRead</font><font color="#434f54">.</font><font color="#d35400">remove</font><font color="#000000">(</font><font color="#000000">4</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">commandWrite</font><font color="#434f54">.</font><font color="#d35400">remove</font><font color="#000000">(</font><font color="#000000">5</font><font color="#000000">)</font><font color="#000000">;</font>
 
-void loop() {
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">commandRead</font><font color="#434f54">.</font><font color="#d35400">equals</font><font color="#000000">(</font><font color="#000000">sRead</font><font color="#000000">)</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">String</font> <font color="#000000">sreadArg1</font> <font color="#434f54">=</font> <font color="#000000">command</font><font color="#434f54">.</font><font color="#d35400">substring</font><font color="#000000">(</font><font color="#000000">5</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">readArg1</font> <font color="#434f54">=</font> <font color="#000000">sreadArg1</font><font color="#434f54">.</font><font color="#d35400">toInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">readArg1</font> <font color="#434f54">&gt;</font> <font color="#000000">1023</font> <font color="#434f54">||</font> <font color="#000000">readArg1</font> <font color="#434f54">&lt;</font> <font color="#000000">0</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">"Invalid, please enter a value from 1 to 1023"</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
 
-if (Serial.available() > 0) {
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#000000">{</font> 
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">valueEEP</font> <font color="#434f54">=</font> <b><font color="#d35400">EEPROM</font></b><font color="#434f54">.</font><font color="#d35400">read</font><font color="#000000">(</font><font color="#000000">readArg1</font><font color="#000000">)</font><font color="#000000">;</font> 
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">"The value is "</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">valueEEP</font><font color="#434f54">,</font> <font color="#00979c">DEC</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
 
-command = Serial.readStringUntil('\n'); 
-String commandRead = command;
-String commandWrite = command;
-String sRead = "read";
-String sWrite = "write";
-commandRead.remove(4);
-commandWrite.remove(5);
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">commandWrite</font><font color="#434f54">.</font><font color="#d35400">equals</font><font color="#000000">(</font><font color="#000000">sWrite</font><font color="#000000">)</font><font color="#000000">)</font> <font color="#000000">{</font> 
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">String</font> <font color="#000000">swriteArgs</font> <font color="#434f54">=</font> <font color="#000000">command</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">swriteArgs</font><font color="#434f54">.</font><font color="#d35400">remove</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">6</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">swriteSpace</font> <font color="#434f54">=</font> <font color="#000000">swriteArgs</font><font color="#434f54">.</font><font color="#d35400">indexOf</font><font color="#000000">(</font><font color="#00979c">' '</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">String</font> <font color="#000000">swriteArg1</font> <font color="#434f54">=</font> <font color="#000000">swriteArgs</font><font color="#434f54">.</font><font color="#d35400">substring</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">swriteSpace</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">writeArg1</font> <font color="#434f54">=</font> <font color="#000000">swriteArg1</font><font color="#434f54">.</font><font color="#d35400">toInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> 
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">String</font> <font color="#000000">swriteArg2</font> <font color="#434f54">=</font> <font color="#000000">swriteArgs</font><font color="#434f54">.</font><font color="#d35400">substring</font><font color="#000000">(</font><font color="#000000">swriteSpace</font> <font color="#434f54">+</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font> 
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">writeArg2</font> <font color="#434f54">=</font> <font color="#000000">swriteArg2</font><font color="#434f54">.</font><font color="#d35400">toInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> 
 
-if (commandRead.equals(sRead)) {
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">writeArg1</font> <font color="#434f54">&lt;</font> <font color="#000000">0</font> <font color="#434f54">||</font> <font color="#000000">writeArg1</font> <font color="#434f54">&gt;</font> <font color="#000000">1023</font> <font color="#434f54">||</font> <font color="#000000">writeArg2</font> <font color="#434f54">&lt;</font> <font color="#000000">0</font> <font color="#434f54">||</font> <font color="#000000">writeArg2</font> <font color="#434f54">&gt;</font> <font color="#000000">255</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">"Invalid, enter a first number from 0 to 1023 and the second number from 0 to 255"</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
 
-String sreadArg1 = command.substring(5);
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font> <font color="#000000">{</font> 
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">byte</font> <font color="#000000">byte1Arg2</font> <font color="#434f54">=</font> <font color="#000000">writeArg2</font> <font color="#434f54">&</font> <font color="#000000">0XFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00979c">byte</font> <font color="#000000">byte2Arg2</font> <font color="#434f54">=</font> <font color="#000000">(</font><font color="#000000">writeArg2</font> <font color="#434f54">&gt;&gt;</font> <font color="#000000">8</font><font color="#000000">)</font> <font color="#434f54">&</font> <font color="#000000">0XFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">EEPROM</font></b><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">writeArg1</font><font color="#434f54">,</font> <font color="#000000">byte1Arg2</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">EEPROM</font></b><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">writeArg1</font> <font color="#434f54">+</font> <font color="#000000">1</font><font color="#434f54">,</font> <font color="#000000">byte2Arg2</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">"Success!"</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#000000">}</font>
+ <font color="#000000">}</font>
+<font color="#000000">}</font>
 
-int readArg1 = sreadArg1.toInt();
-
-if (readArg1 > 1023 || readArg1 < 0) {
-
-Serial.println("Invalid, please enter a value from 1 to 1023");
-
-}
-
-else { 
-int valueEEP = EEPROM.read(readArg1); 
-Serial.print("The value is ");
-Serial.println(valueEEP, DEC);
-}
-}
-
-if (commandWrite.equals(sWrite)) { 
-
-String swriteArgs = command;
-
-swriteArgs.remove(0, 6);
-
-int swriteSpace = swriteArgs.indexOf(' ');
-
-String swriteArg1 = swriteArgs.substring(0, swriteSpace);
-
-int writeArg1 = swriteArg1.toInt(); 
-
-String swriteArg2 = swriteArgs.substring(swriteSpace + 1);
-
-int writeArg2 = swriteArg2.toInt(); 
-
-if (writeArg1 < 0 || writeArg1 > 1023 || writeArg2 < 0 || writeArg2 > 255) {
-
-Serial.println("Invalid, enter a first number from 0 to 1023 and the second number from 0 to 255");
-
-}
-
-else { 
-byte byte1Arg2 = writeArg2 & 0XFF;
-
-byte byte2Arg2 = (writeArg2 >> 8) & 0XFF;
-
-EEPROM.write(writeArg1, byte1Arg2);
-
-EEPROM.write(writeArg1 + 1, byte2Arg2);
-
-Serial.println("Success!");
-
-}
-}
-}
-}
+</pre>
 
 Week 4
 
