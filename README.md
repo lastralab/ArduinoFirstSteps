@@ -8,6 +8,8 @@ Build a circuit that contains two push buttons, an LED, and any other basic comp
 
 ![arduinohw1](https://cloud.githubusercontent.com/assets/22894897/21952471/afed8504-d9da-11e6-8454-757a27ada72f.gif)
 
+I don't know how to press two buttons at the same time using a Mac.
+
 Simulator : https://circuits.io/circuits/3704783-conditions-arduino/
 
 Week 2
