@@ -11,7 +11,12 @@ Simulator : https://circuits.io/circuits/3704783-conditions-arduino/
 
 Week 2
 
+Build a circuit that lights an LED when it is sufficiently dark in a room. Demonstrate the circuit by covering the photoresistor to simulate darkness.
+
 ![led](https://cloud.githubusercontent.com/assets/22894897/22086546/6d70c398-dd96-11e6-86f5-71bd12e01f8a.gif)
+
+Week 3
+
 
 
 Simulator: https://circuits.io/circuits/3657578-analogreadserial
