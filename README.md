@@ -108,6 +108,8 @@ For example, if the user types “read 3” then the contents of EEPROM address 
 
 </pre>
 
+Simulator: https://circuits.io/circuits/3558041-serial-monitor-arduino-eeprom
+
 Week 4
 
 Build a circuit and write a program that allows the user to control the brightness of an LED by turning the potentiometer. When the user turns the potentiometer, the LED brightness should change as well.
