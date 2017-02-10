@@ -117,3 +117,21 @@ Build a circuit and write a program that allows the user to control the brightne
 ![ardpot](https://cloud.githubusercontent.com/assets/22894897/22753493/843d8d7c-edf9-11e6-8c73-7e2dc3f30d29.gif)
 
 Simulator: https://circuits.io/circuits/3941296-arduinopot
+
+AVA'S TRAFFIC INTERSECTION (Week 4):
+
+<img width="763" alt="screenshot 2017-02-10 10 54 37" src="https://cloud.githubusercontent.com/assets/22894897/22837781/5c92b02c-ef7f-11e6-998d-dff554c80a3c.png">
+
+Instructions:
+
+Vehicle circulation can be blocked by the barrier if the train appears or the pedestrian presses the button for the green light.
+
+The green light button is activated if there is no train approaching, and enough time (9 sec) has passed since the button was last activated.
+
+The green light is activated for 5 seconds, which is followed by an intermittent beep. Then, the green light blinks for 3 seconds and the intermittent beep becomes more frequent. After that, the red light is activated again, and the timer counts the time from 0 to 9 seconds.
+
+If the train appears when the green light is on for pedestrians, the red signal is activated urgently and a continuous beep of a different height can be heard.
+
+Wiring:
+
+<img width="1220" alt="screenshot 2017-02-10 09 54 04" src="https://cloud.githubusercontent.com/assets/22894897/22837838/9302c5ca-ef7f-11e6-8943-754db39c945e.png">
