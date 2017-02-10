@@ -1,6 +1,6 @@
 # ArduinoDEMO
 
-Assignments I made from Arduino courses.
+Assignments I made for Arduino courses.
 
 UNIVERSITY OF CALIFORNIA, IRVINE:
 
