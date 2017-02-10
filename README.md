@@ -139,3 +139,13 @@ If the train appears when the green light is on for pedestrians, the red signal 
 Wiring:
 
 <img width="1220" alt="screenshot 2017-02-10 09 54 04" src="https://cloud.githubusercontent.com/assets/22894897/22837838/9302c5ca-ef7f-11e6-8943-754db39c945e.png">
+
+You can imagine the intersection happening like this:
+
+<img width="1033" alt="screenshot 2017-02-10 13 37 41" src="https://cloud.githubusercontent.com/assets/22894897/22843305/2dde1c5a-ef96-11e6-85d0-09387e4598bf.png">
+
+Black path is for cars.
+White&Gray path is for the train.
+Brown path is for people.
+
+
