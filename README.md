@@ -2,7 +2,7 @@
 
 Assignments I made for Arduino courses.
 
-UNIVERSITY OF CALIFORNIA, IRVINE:
+# UNIVERSITY OF CALIFORNIA, IRVINE
 
 Week 1
 
