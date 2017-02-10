@@ -1,6 +1,8 @@
 # ArduinoDEMO
 
-Assignments for Arduino courses.
+Assignments I made from Arduino courses.
+
+UNIVERSITY OF CALIFORNIA, IRVINE:
 
 Week 1
 
@@ -118,7 +120,8 @@ Build a circuit and write a program that allows the user to control the brightne
 
 Simulator: https://circuits.io/circuits/3941296-arduinopot
 
-AVA'S TRAFFIC INTERSECTION (Week 4):
+# MOSCOW INSTITUTE OF PHYSICS AND TECHNOLOGY
+# AVA'S TRAFFIC INTERSECTION (Week 4):
 
 <img width="763" alt="screenshot 2017-02-10 10 54 37" src="https://cloud.githubusercontent.com/assets/22894897/22837781/5c92b02c-ef7f-11e6-998d-dff554c80a3c.png">
 
