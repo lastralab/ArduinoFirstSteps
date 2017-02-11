@@ -150,6 +150,9 @@ While the train is passing, the switch cannot request a green light.
 
 When the train comes again, the green light turns off and the red light turns on.
 
+
+
+
 Simulator: https://circuits.io/circuits/3964527-arduino-traffic-intersection
 
 
