@@ -118,7 +118,7 @@ void loop() {
 
   
 
-/* To run the simulator, copy this link and paste it on your browser:
+/* To run the simulator:
  
  https://circuits.io/circuits/3964527-arduino-traffic-intersection/edit
  
