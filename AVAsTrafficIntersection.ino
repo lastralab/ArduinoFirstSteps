@@ -105,7 +105,6 @@ void loop() {
     digitalWrite(GREEN, LOW);
     delay(15);
     digitalWrite(RED, HIGH);
-    myservo.write(90);
     
   }
     
