@@ -8,7 +8,6 @@
 #define BARRIER 11
 #define GREEN 13
 #define RED 12
-#define YELLOW 8
 
 Servo myservo;
 
@@ -20,10 +19,7 @@ void setup() {
   pinMode(BARRIER, OUTPUT); //servo
   pinMode(GREEN, OUTPUT);
   pinMode(RED, OUTPUT);
-  pinMode(YELLOW, OUTPUT); //Light emitter to simulate the signal interrupted by train.
   
-  digitalWrite(YELLOW, HIGH); //always on, even in the night so when the train passes, 
-  //the sensor will receive less light and activate the statements.
   digitalWrite(BUTTON, HIGH);
   
   myservo.attach(BARRIER);
@@ -109,8 +105,7 @@ void loop() {
     digitalWrite(GREEN, LOW);
     delay(15);
     digitalWrite(RED, HIGH);
-    delay(5000);
-    tone(BUZZER, 580, 5000);
+    myservo.write(90);
     
   }
     
