@@ -150,6 +150,7 @@ While the train is passing, the switch cannot request a green light.
 
 When the train comes again, the green light turns off and the red light turns on.
 
+When the photoresistor is bright, that means the train is not passing but when you turn it dark, it means the train is passing. 
 
 ![avas-iloveimg-compressed](https://cloud.githubusercontent.com/assets/22894897/22856418/3fb937d0-f04e-11e6-9f65-cebebc8bc6cc.gif)
 
