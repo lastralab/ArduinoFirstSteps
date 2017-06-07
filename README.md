@@ -6,17 +6,13 @@ Build a circuit that contains two push buttons, an LED, and any other basic comp
 
 ![arduinohw1](https://cloud.githubusercontent.com/assets/22894897/21952471/afed8504-d9da-11e6-8454-757a27ada72f.gif)
 
-I don't know how to press two buttons at the same time using a Mac.
-
-Simulator : https://circuits.io/circuits/3704783-conditions-arduino/
+I don't know how to press two buttons at the same time using a Mac (lazy).
 
 Week 2
 
 Build a circuit that lights an LED when it is sufficiently dark in a room. Demonstrate the circuit by covering the photoresistor to simulate darkness.
 
 ![led](https://cloud.githubusercontent.com/assets/22894897/22086546/6d70c398-dd96-11e6-86f5-71bd12e01f8a.gif)
-
-Simulator: https://circuits.io/circuits/3657578-analogreadserial
 
 Week 3
 
@@ -106,13 +102,8 @@ For example, if the user types “read 3” then the contents of EEPROM address 
 
 </pre>
 
-Simulator: https://circuits.io/circuits/3558041-serial-monitor-arduino-eeprom
-
 Week 4
 
 Build a circuit and write a program that allows the user to control the brightness of an LED by turning the potentiometer. When the user turns the potentiometer, the LED brightness should change as well.
 
 ![ardpot](https://cloud.githubusercontent.com/assets/22894897/22753493/843d8d7c-edf9-11e6-8c73-7e2dc3f30d29.gif)
-
-Simulator: https://circuits.io/circuits/3941296-arduinopot
-
